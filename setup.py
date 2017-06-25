@@ -8,7 +8,7 @@ setup(name='pertInv',
       author_email='jan.gleixner@gmail.com',
       license='MIT',
       install_requires=[
-          'numpy',
+          'numpy', 'scipy', 'scikit-learn',
       ],
       packages=['pertInv'],
       test_suite='nose.collector',
