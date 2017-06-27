@@ -34,7 +34,7 @@ def test_plausible_parent_set(X, y, z):
                 for e in range(n_e)]) * n_e
 
 
-ICP = namedtuple("ICP", ["S_hat", "q_values"])
+ICP = namedtuple("ICP", ["S_hat", "q_values", "p_value"])
 
 
 def invariant_causal_prediction(X, y, z, alpha=0.1):
@@ -68,13 +68,15 @@ def invariant_causal_prediction(X, y, z, alpha=0.1):
 
     S_0 = list(range(p))
     q_values = np.zeros(p)
+    p_value_model = 0
 
     for S in all_parent_sets(S_0, max_num_parents):
         not_S = np.ones(p, np.bool)
         not_S[list(S)] = False
-        q_values[not_S] = np.maximum(q_values[not_S], test_plausible_parent_set(X[:, S], y, z))
-        q_values = np.minimum(q_values, 1)
+        p_value = test_plausible_parent_set(X[:, S], y, z)
+        q_values[not_S] = np.maximum(q_values[not_S], p_value)
+        p_value_model = max(p_value_model, p_value)
 
     q_values = np.minimum(q_values, 1)
     S_hat = np.where(q_values <= alpha)[0]
-    return ICP(S_hat, q_values)
+    return ICP(S_hat, q_values, p_value_model)
