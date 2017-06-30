@@ -4,6 +4,7 @@ from collections import namedtuple
 import numpy as np
 import scipy.stats
 import sklearn.linear_model
+from sklearn.linear_model import RandomizedLasso
 
 
 def all_parent_sets(S, max_num_parents):
@@ -32,6 +33,13 @@ def test_plausible_parent_set(X, y, z):
                         f_test(residuals[np.equal(z, e)],
                                residuals[np.logical_not(np.equal(z, e))]))
                 for e in range(n_e)]) * n_e
+
+
+def preselect_parents(X, y, n):
+    stability_selection_fit = RandomizedLasso(alpha=np.exp(range(1,-10,-1)), scaling=0.1).fit(X, y)
+    best_alpha_idx = np.sum(stability_selection_fit.all_scores_, axis=0).searchsorted(n)
+    selected = np.argpartition(stability_selection_fit.all_scores_[:,best_alpha_idx], n)[-n:]
+    return selected
 
 
 ICP = namedtuple("ICP", ["S_hat", "q_values", "p_value"])

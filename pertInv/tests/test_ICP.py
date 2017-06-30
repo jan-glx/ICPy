@@ -73,3 +73,13 @@ class TestICP(TestCase):
             [0.110799906961932, 0.0775142028334219, -0.0517966484888954, 0.0169115436825457, -0.0472594541962366,
              -0.109982638096806])
         self.assertAlmostEquals(ICP.f_test(x, y), 0.4719577)
+
+    def test_preselection(self):
+        n = 100
+        p = 4
+        X = np.random.normal(size=[n, p])
+        X[:, (0,2)] +=  np.random.normal(size=(n, 1))
+        X[:, (1,3)] +=  np.random.normal(size=(n, 1))
+        y = np.dot(X, np.array([1, 1, 0, 0])) + np.random.normal(size=n)
+        selected = ICP.preselect_parents(X, y, 2)
+        np.testing.assert_array_almost_equal(np.sort(selected), [0, 1])
