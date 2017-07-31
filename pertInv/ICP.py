@@ -36,9 +36,7 @@ def test_plausible_parent_set(X, y, z):
 
 
 def preselect_parents(X, y, n):
-    stability_selection_fit = RandomizedLasso(alpha=np.exp(range(1,-10,-1)), scaling=0.1).fit(X, y)
-    best_alpha_idx = np.sum(stability_selection_fit.all_scores_, axis=0).searchsorted(n)
-    selected = np.argpartition(stability_selection_fit.all_scores_[:,best_alpha_idx], n)[-n:]
+    _, selected, _ = sklearn.linear_model.lars_path(X, y, method='lasso', max_iter=n, return_path=False)
     return selected
 
 
