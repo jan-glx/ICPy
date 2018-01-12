@@ -9,6 +9,7 @@ from .. import ICP
 
 class TestICP(TestCase):
     def test_runs(self):
+        np.random.seed(seed=1)
         n = 100
         p = 4
         E = np.random.randint(3, size=[n])
@@ -25,6 +26,7 @@ class TestICP(TestCase):
             self.fail("invariant_causal_prediction() raised an exception unexpectedly!")
 
     def test_simple(self):
+        np.random.seed(seed=1)
         n = 100
         p = 3
         noise = 0.1
@@ -36,6 +38,7 @@ class TestICP(TestCase):
         np.testing.assert_array_equal(S_hat, np.array([1]))
 
     def test_very_simple_R(self):
+        np.random.seed(seed=1)
         E = np.array([0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
         X = np.array([[-0.13, 1.02, 0.09, -0.08, 1.03, -0.06, -0.02, 1.02,
                        -0.03, -0.17], [-0.08, 0.97, 1.08, -0.05, 1.03, 0.84, -0.06, 1.15,
@@ -45,6 +48,7 @@ class TestICP(TestCase):
         np.testing.assert_array_almost_equal(q_values, [1, 0.0005721278])
 
     def test_size(self):
+        np.random.seed(seed=1)
         n = 10
         p = 3
         noise = 0.1
@@ -74,6 +78,7 @@ class TestICP(TestCase):
         self.assertAlmostEquals(ICP.f_test(x, y), 0.4719577)
 
     def test_preselection(self):
+        np.random.seed(seed=1)
         n = 100
         p = 4
         X = np.random.normal(size=[n, p])
