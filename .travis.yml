@@ -16,3 +16,11 @@ script:
   - coverage run -m unittest discover
 after_success:
   - codecov
+jobs:
+  include:
+    - stage: deploy pypi
+      deploy:
+      provider: pypi
+      user: "jan-glx"
+      password:
+        secure: "Np0rOOfgSeAbTjj+DNjVxM+NX1x7MO8mEWeZ1szEPjI3obqyV/1Dl9ZK1sy4MWNVjZ9jryriQdPx/0QuEZa6DaHrS0RDhR4DZxoy1FVpxUbPaWaFnoOrtrf5icbrDPhZIUWRJrb01PDCtLQOHdhH9o7QrI9BT0H0N5bRgr8PVEwqM/sgVZFWszIKMXOyE0NMLGpS2AYRly2NINU04OBfJhUo5ftgJsJHpXZevWe4QoS3jsdDPItwlgK6K5nDp/CIf+A3tGDzma+2J+bllBwRMVFc9C/DBioNb0HOWLSs5WbuISIgno6fF1vZ+Z6WU6i1x1XMsx1HE3y1JX6AsfTiHWzewF5fWZ3yw8f2GBH25wVHYlj5WnAc6x+ZvWz7JOszpMWIaZyCmdXPLnASIYmk5nHZs/XKadEVyDO9Vou6SC+BVzMjAVj36JcZifrP1/xAakzGOCBqRrwqdxVLXAs2hkCspYRkUXmzJT03tVRAbFoH0JVjMV9kJ9VlznVHckfICOyA0zs5bkepRlfOERzm7wgHbYMEPqwMLW/VhVHVYfcD2laaSTzh4CZZGti6m6RJmnE4FNmxEc/xLAGLrG3yLNuGFQFoUVkN970ucIi+J5eszNSCUQrJxtpvnBGm5rGWdzk2siwe3TNphSUq8h+iGNOE8yhm5ohLrbOrLVwP/SM="
