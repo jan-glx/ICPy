@@ -8,7 +8,11 @@ python:
   - "3.6-dev"  # 3.6 development branch
 # command to install dependencies
 install:
-  - pip install .
+  - pip install .  
+  - pip install codecov
 # command to run tests
 script:
   - pytest # or py.test for Python versions 3.5 and below
+  - coverage run -m unittest discover
+after_success:
+  - codecov
