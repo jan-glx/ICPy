@@ -4,7 +4,6 @@ from collections import namedtuple
 import numpy as np
 import scipy.stats
 import sklearn.linear_model
-from sklearn.linear_model import RandomizedLasso
 
 
 def all_parent_sets(S, max_num_parents):
