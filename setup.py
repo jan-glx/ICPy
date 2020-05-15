@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='ICPy',
-      version='0.0.002',
+      version='0.0.003',
       description='Invariant Causal Prediction for python',
       url='https://github.com/jan-glx/ICPy',
       author='Jan Gleixner',
