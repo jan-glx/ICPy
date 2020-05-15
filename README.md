@@ -29,5 +29,11 @@ ICP(S_hat=array([1], dtype=int64),
     p_values=array([  1.51508232e-01,   4.59577055e-37]), 
     p_value=0.16416488336322549)
 ```
+
+### News
+v0.0.003 (2020-05-15)
+* fix failing import (thanks to [@lgmoneda](https://github.com/lgmoneda), [#1](https://github.com/jan-glx/ICPy/pull/1))
+* fix issues when environments are not subsequent whole numbers starting at 0 (thanks to [@lgmoneda](https://github.com/lgmoneda), [#1](https://github.com/jan-glx/ICPy/pull/1))
+
 ### References
 [1] J. Peters, P. Bühlmann, N. Meinshausen, Causal inference by using invariant prediction: identification and confidence intervals, J. R. Stat. Soc. Ser. B Stat. Methodol. 78 (2016) 947-1012. doi:10.1111/rssb.12167.
