@@ -21,8 +21,7 @@ jobs:
     - stage: deploy pypi
       deploy:
           provider: pypi
-          user: "jan-glx"
-          password:
-            secure: I+IUr85wTgnoSOFnIGPQddjWFwemXS4OpKgwriGma2dHOcs0JecH8aFrK221cxpBJ+QtIVW4lla78oihcunaYAskovqwfR/18wg0raZGtC1Surzat6Ul5nx80nNCbt7JMtJB74dHYW56QV3+fKL8KTdXgTjqQNEBd/5tONljid2h/icXr5prD/7YDZ27/dTmK3fCg0bcoARzp582XZDlmw+v9DMv4sPKA11PVFsU1eRZCLCB30tr6ODrGRpI0VoqJRN0VXhg/IJurUq/FyJBF+pD5yylvSz3co4RjldwDzn9F9wyJc4JwD4wC8sitX8A3ysP2ZCflMLgUuBoEYstpMcFZg/swvMyOwWBy0c38j4F5ZkgjgZe3C28jG5GEGcAf2NuXwbU0IEyMmhErhyrSGb3OFtpOi0yW5liPTf9tw9XccGP/y/OET8uESAFmfkR3ewpLvZ6u2jqFkRi4G4FJz8mT8RMUI74oQ1sUJ5ClbDttMiE9IuTJpNqKFT45yjOG4xB/ztfzCTWMS61zXk3jeLQwwWhUzfSVIqovzMeU6L+YHHo2js3xEZ7I/fgA08hrp1JYtU7KsA4G+6s2u+A7Wif4Uegv2NBu7ixkcHyj+dZhYnIckmJyb15qH7bwOB71AV0unYW51+b7wTMC2/WKSi7BysbUrqS+CFfrqrtJuM=
+          user: __token__
+          password: $PYPI_SECRET
           on:
             tags: true
