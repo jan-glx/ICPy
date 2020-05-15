@@ -4,7 +4,6 @@ from collections import namedtuple
 import numpy as np
 import scipy.stats
 import sklearn.linear_model
-from sklearn.linear_model import RandomizedLasso
 
 
 def all_parent_sets(S, max_num_parents):
@@ -21,7 +20,8 @@ def f_test(x1, x2):
 
 
 def test_plausible_parent_set(X, y, z):
-    n_e = np.max(z) + 1
+    n_e = len(np.unique(z))
+    environments = np.unique(z)
     lm = sklearn.linear_model.LinearRegression(fit_intercept=False)
     X_with_intercept = np.hstack((X, np.ones((X.shape[0], 1))))
     lm.fit(X_with_intercept, y)
@@ -32,7 +32,7 @@ def test_plausible_parent_set(X, y, z):
                                               equal_var=False).pvalue,
                         f_test(residuals[np.equal(z, e)],
                                residuals[np.logical_not(np.equal(z, e))]))
-                for e in range(n_e)]) * n_e
+                for e in environments]) * n_e
 
 
 def preselect_parents(X, y, n):
