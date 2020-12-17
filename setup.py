@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
       long_description = fh.read()
 
 setup(name='ICPy',
-      version='0.0.003',
+      version='0.0.004',
       description='Invariant Causal Prediction for python',
       url='https://github.com/jan-glx/ICPy',
       author='Jan Gleixner',
