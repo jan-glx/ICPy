@@ -16,18 +16,22 @@ import numpy as np
 np.random.seed(seed=1)
 n = 100
 noise = 0.1
-E = np.repeat([0, 1, 2], np.ceil(n / 3.0))[0:n]
-A = np.random.normal(scale=noise, size=[n]) + np.equal(E, 1)
-B = A + np.random.normal(scale=noise, size=[n]) / 3 + np.equal(E, 2)
-C = B + np.random.normal(scale=noise, size=[n])
-icpy.invariant_causal_prediction(X=np.column_stack((A, B)), y=C, z=E)
+E = np.repeat([0, 1, 2], np.ceil(n / 3.0))[0:n]                       # "Environment"
+A = np.random.normal(scale=noise, size=[n]) + np.equal(E, 1)          # Node A
+B = A + np.random.normal(scale=noise, size=[n]) / 3 + np.equal(E, 2)  # Node B
+C = B + np.random.normal(scale=noise, size=[n])                       # Node C
+
+#  /--->---\
+# E -> A -> B -> C
+
+icpy.invariant_causal_prediction(X=np.column_stack((A, B)), y=C, z=E) # test if A or B are parents of C
 ```
 Output
 
 ```
-ICP(S_hat=array([1], dtype=int64), 
-    p_values=array([  1.51508232e-01,   4.59577055e-37]), 
-    p_value=0.16416488336322549)
+ICP(S_hat=array([1], dtype=int64),                         # Column 1 = Node B was (correctly) identified as parent of C
+    p_values=array([  1.51508232e-01,   4.59577055e-37]),  # error levels at which A and B would/are indentied as parent of C
+    p_value=0.16416488336322549)                           # p-value for testing against violation of the model assumptions (e.g. a direct effect of E on C)
 ```
 
 ### News
