@@ -77,7 +77,7 @@ def invariant_causal_prediction(X, y, z, alpha=0.1):
     p_value_model = 0
 
     for S in all_parent_sets(S_0, max_num_parents):
-        not_S = np.ones(p, np.bool)
+        not_S = np.ones(p, bool)
         not_S[list(S)] = False
         p_value = test_plausible_parent_set(X[:, S], y, z)
         q_values[not_S] = np.maximum(q_values[not_S], p_value)
