@@ -2,10 +2,6 @@ language: python
 python:
   - "3.9"
   - "3.9-dev"
-  - "nightly"  # nightly build
-  - "3.8"
-  - "3.7"
-  - "3.6"
   - "3.4"
   - "2.7"
 # command to install dependencies
@@ -18,12 +14,9 @@ script:
   - coverage run -m unittest discover
 after_success:
   - codecov
-jobs:
-  include:
-    - stage: deploy pypi
-      deploy:
-          provider: pypi
-          user: __token__
-          password: $PYPI_SECRET
-          on:
-            tags: true
+deploy:
+    provider: pypi
+    user: __token__
+    password: $PYPI_SECRET
+    on:
+      tags: true
