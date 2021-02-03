@@ -3,7 +3,7 @@
 
 This packages provides a simple python implementation of Invariant Causal Prediction (ICP) [1].
 
-See also the original implementation in the R package InvariantCausalPrediction.
+See also the original implementation in the R package [InvariantCausalPrediction](https://cran.r-project.org/web/packages/InvariantCausalPrediction/index.html).
 ### Installation
 ``` bash
 pip install ICPy
