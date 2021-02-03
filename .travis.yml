@@ -19,4 +19,5 @@ deploy:
     user: __token__
     password: $PYPI_SECRET
     on:
+      python: "3.9"
       tags: true
