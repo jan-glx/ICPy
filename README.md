@@ -28,7 +28,7 @@ icpy.invariant_causal_prediction(X=np.column_stack((A, B)), y=C, z=E) # test if 
 ```
 Output
 
-```
+``` python
 ICP(S_hat=array([1], dtype=int64),                         # Column 1 = Node B was (correctly) identified as parent of C
     p_values=array([  1.51508232e-01,   4.59577055e-37]),  # error levels at which A and B would/are indentied as parent of C
     p_value=0.16416488336322549)                           # p-value for testing against violation of the model assumptions (e.g. a direct effect of E on C)
