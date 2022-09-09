@@ -4,7 +4,7 @@ import numpy as np
 import scipy.stats
 
 import icpy
-from .. import ICP
+from icpy import ICP
 
 
 class TestICP(TestCase):
