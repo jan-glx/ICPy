@@ -58,12 +58,12 @@ def invariant_causal_prediction(X, y, z, alpha=0.1):
     Z : array_like
         index of environment, length(Z)==`n`
     alpha : float
-        Confidence level of the tests and FDR to control. P(\hat{S} \subset S^*) \gte 1-`alpha`
+        Confidence level of the tests and FDR to control. :math:`P(\hat{S} \subset S^*) \gte 1-\mathtt{alpha}`
 
     Returns
     -------
     list
-        The identified causal parent set, \hat{S}, as list of indices
+        The identified causal parent set, :math:`\hat{S}`, as list of indices
 
     """
 
