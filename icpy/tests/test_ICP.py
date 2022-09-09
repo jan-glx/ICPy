@@ -13,7 +13,7 @@ class TestICP(TestCase):
         n = 100
         p = 4
         E = np.random.randint(3, size=[n])
-        E_ = np.zeros([n, p], dtype=np.bool)
+        E_ = np.zeros([n, p], dtype=bool)
         E_[:, E] = True
         X = np.random.normal(size=[n, p])
         X = X.dot(np.random.normal(size=[p, p])) + E_
