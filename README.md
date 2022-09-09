@@ -1,5 +1,6 @@
 ## ICPy
-[![Python application](https://github.com/jan-glx/ICPy/actions/workflows/python-app.yml/badge.svg)](https://github.com/jan-glx/ICPy/actions/workflows/python-app.yml) [![codecov](https://codecov.io/gh/jan-glx/ICPy/branch/master/graph/badge.svg)](https://codecov.io/gh/jan-glx/ICPy) [![PyPI version](https://img.shields.io/pypi/v/ICPy.svg)](https://pypi.org/project/ICPy/)
+[![CI](https://github.com/jan-glx/ICPy/actions/workflows/ci.yml/badge.svg)](https://github.com/jan-glx/ICPy/actions/workflows/ci.yml) ![Coverage badge](https://raw.githubusercontent.com/jan-glx/ICPy/python-coverage-comment-action-data/badge.svg)
+[![PyPI version](https://img.shields.io/pypi/v/ICPy.svg)](https://pypi.org/project/ICPy/)
 
 This packages provides a simple python implementation of Invariant Causal Prediction (ICP) [1].
 
