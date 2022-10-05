@@ -1,0 +1,21 @@
+icpy package
+============
+
+Submodules
+----------
+
+icpy.ICP module
+---------------
+
+.. automodule:: icpy.ICP
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: icpy
+   :members:
+   :undoc-members:
+   :show-inheritance:
