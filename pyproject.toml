@@ -24,6 +24,10 @@ classifiers = [
 urls = {source = 'https://github.com/jan-glx/ICPy'}
 dependencies = ['numpy', 'scipy', 'scikit-learn',]
 
+[project.optional-dependencies]
+doc = ['sphinx', 'furo',]
+
+
 [tool.setuptools]
 zip-safe = false
 
