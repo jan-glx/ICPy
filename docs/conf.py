@@ -29,6 +29,7 @@ extensions = [
 	'sphinx.ext.autodoc',
 	'sphinx.ext.viewcode',
 	'sphinx.ext.napoleon', # for numpy/google style docstrings
+	'sphinx.ext.githubpages', # adds .nojekyll file
 ]
 
 templates_path = ['_templates']
