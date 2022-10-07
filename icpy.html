@@ -240,14 +240,13 @@
 <dt class="sig sig-object py" id="icpy.ICP.invariant_causal_prediction">
 <span class="sig-prename descclassname"><span class="pre">icpy.ICP.</span></span><span class="sig-name descname"><span class="pre">invariant_causal_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/icpy/ICP.html#invariant_causal_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#icpy.ICP.invariant_causal_prediction" title="Permalink to this definition">#</a></dt>
 <dd><p>Perform Invariant Causal Prediction.</p>
-<p>Not yet implemented.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>(</em><em>n</em><em>, </em><em>p</em><em>) </em><em>ndarray</em>) – predictor variables</p></li>
 <li><p><strong>y</strong> (<em>(</em><em>n</em><em>,</em><em>) </em><em>ndarray</em>) – target variable, numpy array of shape <cite>(n)</cite></p></li>
 <li><p><strong>Z</strong> (<em>array_like</em>) – index of environment, length(Z)==`n`</p></li>
-<li><p><strong>alpha</strong> (<em>float</em>) – Confidence level of the tests and FDR to control. <span class="math notranslate nohighlight">\(P(\hat{S} \subset S^*) \gte 1-\mathtt{alpha}\)</span></p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Confidence level of the tests and FDR to control. <span class="math notranslate nohighlight">\(P(\hat{S} \subset S^*) \geq 1-\mathtt{alpha}\)</span></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
