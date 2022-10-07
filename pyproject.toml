@@ -25,6 +25,7 @@ urls = {source = 'https://github.com/jan-glx/ICPy'}
 dependencies = ['numpy', 'scipy', 'scikit-learn',]
 
 [project.optional-dependencies]
+test = ['pytest', 'pyest-cov', 'coverage',]
 doc = ['sphinx', 'furo',]
 
 
