@@ -26,7 +26,7 @@ dependencies = ['numpy', 'scipy', 'scikit-learn',]
 
 [project.optional-dependencies]
 test = ['pytest', 'pyest-cov', 'coverage',]
-doc = ['sphinx', 'furo',]
+doc = ['sphinx', 'furo', 'myst_parser']
 
 
 [tool.setuptools]

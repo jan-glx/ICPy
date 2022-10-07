@@ -28,6 +28,7 @@ author = 'Jan Gleixner'
 extensions = [
 	'sphinx.ext.autodoc',
 	'sphinx.ext.viewcode',
+	'myst_parser',
 	'sphinx.ext.napoleon', # for numpy/google style docstrings
 	'sphinx.ext.githubpages', # adds .nojekyll file
 ]
