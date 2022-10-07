@@ -2,8 +2,8 @@
 [![CI](https://github.com/jan-glx/ICPy/actions/workflows/ci.yml/badge.svg)](https://github.com/jan-glx/ICPy/actions/workflows/ci.yml) ![Coverage badge](https://raw.githubusercontent.com/jan-glx/ICPy/python-coverage-comment-action-data/badge.svg)
 [![PyPI version](https://img.shields.io/pypi/v/ICPy.svg)](https://pypi.org/project/ICPy/)
 
-This packages provides a simple python implementation of Invariant Causal Prediction (ICP) [1].
-
+This packages provides a simple python implementation of Invariant Causal Prediction (ICP) [1].<br>
+The source code for the actual algorithm resides in [./src/icp/ICP.py](./src/icpy/ICP.py). <br>
 See also the original implementation in the R package [InvariantCausalPrediction](https://cran.r-project.org/web/packages/InvariantCausalPrediction/index.html).
 ### Installation
 ``` bash
