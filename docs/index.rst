@@ -11,13 +11,6 @@
    :maxdepth: 4 
    :caption: Contents:
 
-
-   modules
-
-
-Indices and tables
-==================
+   icpy 
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
