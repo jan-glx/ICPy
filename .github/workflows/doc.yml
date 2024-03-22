@@ -12,10 +12,14 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+    - name: Install and update pip
+      run: |
+        python -m pip install --upgrade pip
     - name: install doc deps
       run: |
-        pip install ".[doc]"
+        pip install .[doc]
     - name: prep sphinx
       run: |
         cd docs
