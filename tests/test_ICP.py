@@ -75,7 +75,7 @@ class TestICP(TestCase):
         y = np.array(
             [0.110799906961932, 0.0775142028334219, -0.0517966484888954, 0.0169115436825457, -0.0472594541962366,
              -0.109982638096806])
-        self.assertAlmostEquals(ICP.f_test(x, y), 0.4719577)
+        self.assertAlmostEqual(ICP.f_test(x, y), 0.4719577)
 
     def test_preselection(self):
         np.random.seed(seed=1)
