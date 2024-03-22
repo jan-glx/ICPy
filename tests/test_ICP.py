@@ -20,10 +20,7 @@ class TestICP(TestCase):
         beta = np.array([1, -2, 0, 0])
         y = X.dot(beta)
         X[:, 3] += y
-        try:
-            s = icpy.invariant_causal_prediction(X, y, E)
-        except:
-            self.fail("invariant_causal_prediction() raised an exception unexpectedly!")
+        icpy.invariant_causal_prediction(X, y, E)
 
     def test_simple(self):
         np.random.seed(seed=1)
