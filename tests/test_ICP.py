@@ -70,7 +70,7 @@ class TestICP(TestCase):
     def test_parent_set_generator(self):
         self.assertEqual(tuple(ICP.all_parent_sets(range(3), 2)), ((), (0,), (1,), (2,), (0, 1), (0, 2), (1, 2)))
 
-    def tes_f_test(self):
+    def test_f_test(self):
         x = np.array([-0.0125254538334171, 0.0365808106496997, -0.152432057452361, 0.132189787940119])
         y = np.array(
             [0.110799906961932, 0.0775142028334219, -0.0517966484888954, 0.0169115436825457, -0.0472594541962366,
