@@ -2,10 +2,10 @@
 
 [Full report](https://htmlpreview.github.io/?https://github.com/jan-glx/ICPy/blob/python-coverage-comment-action-data/htmlcov/index.html)
 
-| Name               |    Stmts |     Miss |   Branch |   BrPart |   Cover |   Missing |
-|------------------- | -------: | -------: | -------: | -------: | ------: | --------: |
-| tests/test\_ICP.py |       73 |        2 |        2 |        0 |     97% |     25-26 |
-|          **TOTAL** |   **73** |    **2** |    **2** |    **0** | **97%** |           |
+| Name               |    Stmts |     Miss |   Branch |   BrPart |    Cover |   Missing |
+|------------------- | -------: | -------: | -------: | -------: | -------: | --------: |
+| tests/test\_ICP.py |       70 |        0 |        2 |        0 |     100% |           |
+|          **TOTAL** |   **70** |    **0** |    **2** |    **0** | **100%** |           |
 
 
 ## Setup coverage badge
