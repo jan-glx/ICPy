@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-5.2.3, furo 2022.09.29"/>
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>icpy.ICP - ICPy documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -148,7 +148,7 @@
   <span class="sidebar-brand-text">ICPy  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -198,20 +198,28 @@
 <span class="kn">import</span> <span class="nn">sklearn.linear_model</span>
 
 
-<div class="viewcode-block" id="all_parent_sets"><a class="viewcode-back" href="../../icpy.html#icpy.ICP.all_parent_sets">[docs]</a><span class="k">def</span> <span class="nf">all_parent_sets</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">max_num_parents</span><span class="p">):</span>
+<div class="viewcode-block" id="all_parent_sets">
+<a class="viewcode-back" href="../../icpy.html#icpy.ICP.all_parent_sets">[docs]</a>
+<span class="k">def</span> <span class="nf">all_parent_sets</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">max_num_parents</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
         <span class="n">it</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n_parents</span><span class="p">)</span> <span class="k">for</span> <span class="n">n_parents</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="n">max_num_parents</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="f_test"><a class="viewcode-back" href="../../icpy.html#icpy.ICP.f_test">[docs]</a><span class="k">def</span> <span class="nf">f_test</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="f_test">
+<a class="viewcode-back" href="../../icpy.html#icpy.ICP.f_test">[docs]</a>
+<span class="k">def</span> <span class="nf">f_test</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform F-test for equal variance.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="test_plausible_parent_set"><a class="viewcode-back" href="../../icpy.html#icpy.ICP.test_plausible_parent_set">[docs]</a><span class="k">def</span> <span class="nf">test_plausible_parent_set</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+
+<div class="viewcode-block" id="test_plausible_parent_set">
+<a class="viewcode-back" href="../../icpy.html#icpy.ICP.test_plausible_parent_set">[docs]</a>
+<span class="k">def</span> <span class="nf">test_plausible_parent_set</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="n">n_e</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
     <span class="n">environments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
     <span class="n">lm</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -227,16 +235,22 @@
                 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">environments</span><span class="p">])</span> <span class="o">*</span> <span class="n">n_e</span></div>
 
 
-<div class="viewcode-block" id="preselect_parents"><a class="viewcode-back" href="../../icpy.html#icpy.ICP.preselect_parents">[docs]</a><span class="k">def</span> <span class="nf">preselect_parents</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+<div class="viewcode-block" id="preselect_parents">
+<a class="viewcode-back" href="../../icpy.html#icpy.ICP.preselect_parents">[docs]</a>
+<span class="k">def</span> <span class="nf">preselect_parents</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">selected</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">lars_path</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lasso&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">return_path</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">selected</span></div>
+
 
 
 <span class="n">ICP</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;ICP&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;S_hat&quot;</span><span class="p">,</span> <span class="s2">&quot;q_values&quot;</span><span class="p">,</span> <span class="s2">&quot;p_value&quot;</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="invariant_causal_prediction"><a class="viewcode-back" href="../../icpy.html#icpy.ICP.invariant_causal_prediction">[docs]</a><span class="k">def</span> <span class="nf">invariant_causal_prediction</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="invariant_causal_prediction">
+<a class="viewcode-back" href="../../icpy.html#icpy.ICP.invariant_causal_prediction">[docs]</a>
+<span class="k">def</span> <span class="nf">invariant_causal_prediction</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform Invariant Causal Prediction.</span>
 
 <span class="sd">    Parameters</span>
@@ -276,6 +290,7 @@
     <span class="n">q_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">q_values</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">S_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">q_values</span> <span class="o">&lt;=</span> <span class="n">alpha</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">ICP</span><span class="p">(</span><span class="n">S_hat</span><span class="p">,</span> <span class="n">q_values</span><span class="p">,</span> <span class="n">p_value_model</span><span class="p">)</span></div>
+
 </pre></div>
         </article>
       </div>
@@ -296,9 +311,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -310,12 +323,9 @@
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/scripts/furo.js"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     </body>
 </html>
