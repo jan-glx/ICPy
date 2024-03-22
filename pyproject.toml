@@ -24,19 +24,25 @@ urls = {source = 'https://github.com/jan-glx/ICPy'}
 dependencies = ['numpy', 'scipy', 'scikit-learn',]
 
 [project.optional-dependencies]
-test = ['pytest', 'pytest-cov', 'coverage', 'scipy>=1.7.0']
+test = ['pytest', 'coverage[toml]', 'scipy>=1.7.0']
 doc = ['sphinx', 'furo', 'myst_parser']
-
 
 [tool.setuptools]
 zip-safe = false
 
-[tool.pytest.ini_options]
-addopts = ''' 
-    --cov-report term-missing --cov-branch --cov-report xml --cov-report term
-    --cov -vv --strict-markers -rfE
-'''
-
 [tool.coverage.run]
+branch = true
 relative_files = true
 
+[tool.coverage.report]
+include_namespace_packages = true
+exclude_lines = [
+    'if self.debug:',
+    'pragma: no cover',
+    'raise NotImplementedError',
+    'if __name__ == .__main__.:'
+]
+omit = ['icpy/tests/*']
+
+[tool.coverage.html]
+directory = "coverage_html_report"

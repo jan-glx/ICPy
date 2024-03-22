@@ -33,9 +33,9 @@ jobs:
     - name: Install
       run: |
         pip install .[test]
-    - name: Test
+    - name: Test with coverage
       run: |
-         pytest         
+         coverage run -m pytest
     - name: Coverage comment
       id: coverage_comment
       uses: py-cov-action/python-coverage-comment-action@v3
