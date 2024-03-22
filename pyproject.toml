@@ -8,7 +8,6 @@ version = "0.0.005"
 description = 'Invariant Causal Prediction for python'
 readme = "README.md"
 requires-python = '>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*'
-license = {text = 'MIT'}
 authors = [{name = 'Jan Gleixner', email = 'jan.gleixner+icpy@gmail.com'}]
 maintainers = [{name = 'Jan Gleixner', email = 'jan.gleixner+icpy@gmail.com'}]
 keywords = ['statistics', 'casual-inference']
