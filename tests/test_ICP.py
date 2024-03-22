@@ -64,7 +64,7 @@ class TestICP(TestCase):
 
         N = 100
         K = sum((one() for _ in range(N)))
-        p_value = scipy.stats.binom_test(K, N, alpha, alternative="greater")
+        p_value = scipy.stats.binomtest(K, N, alpha, alternative="greater").pvalue
         self.assertGreater(p_value, 0.01)
 
     def test_parent_set_generator(self):
