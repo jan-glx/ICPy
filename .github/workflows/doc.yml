@@ -1,46 +1,72 @@
-# .github/workflows/coverage.yml
-name: build documentation
+# .github/workflows/docs.yml
+name: Build documentation
 
 on:
   workflow_run:
     workflows: ["CI"]
     types:
       - completed
-      
+
+permissions: {}
+
+concurrency:
+  group: documentation
+  cancel-in-progress: true
 
 jobs:
   docs:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'master'
+
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-    - name: Install and update pip
-      run: |
-        python -m pip install --upgrade pip
-    - name: install doc deps
-      run: |
-        pip install .[doc]
-    - name: prep sphinx
-      run: |
-        cd docs
-        sphinx-apidoc -f -o . ../src/ 
-        make html
-        
-    - name: Commit documentation changes
-      run: |
-        git clone https://github.com/jan-glx/ICPy.git --branch gh-pages --single-branch gh-pages
-        cp -r docs/_build/html/* gh-pages/
-        cd gh-pages
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Update documentation" -a || true
-        # The above command will fail if no changes were present, so we ignore
-        # the return code.
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: gh-pages
-        directory: gh-pages
-        github_token: ${{ secrets.GITHUB_TOKEN }}
- 
+      - name: Checkout source
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.10"
+
+      - name: Install documentation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install '.[doc]'
+
+      - name: Build documentation
+        run: |
+          cd docs
+          sphinx-apidoc -f -o . ../src/
+          make html
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Update gh-pages
+        run: |
+          find gh-pages -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r docs/_build/html/. gh-pages/
+
+          cd gh-pages
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No documentation changes."
+          else
+            git commit -m "Update documentation"
+            git push
+          fi
