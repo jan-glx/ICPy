@@ -9,13 +9,13 @@ icpy.ICP module
 
 .. automodule:: icpy.ICP
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: icpy
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
